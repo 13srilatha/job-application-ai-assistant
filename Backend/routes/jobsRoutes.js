@@ -1,7 +1,7 @@
 // const OpenAI = require("openai");
 
 // const openai = new OpenAI({
-//     apiKey: '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'
+//     apiKey: 'your_api_key'
 // });
 
 // // Dummy job data
@@ -104,3 +104,4 @@ router.post("/recommend", (req, res) => {
 });
 
 module.exports = router;
+
