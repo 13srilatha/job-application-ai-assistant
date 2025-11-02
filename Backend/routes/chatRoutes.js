@@ -3,7 +3,7 @@ const router = express.Router();
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-    apiKey: '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'
+    apiKey: 'Your_api_key'
 
 });
 
@@ -22,3 +22,4 @@ router.post("/chat", async (req, res) => {
 });
 
 module.exports = router;
+
