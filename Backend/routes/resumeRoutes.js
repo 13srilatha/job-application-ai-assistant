@@ -1,53 +1,3 @@
-// const express = require('express');
-// const mammoth = require('mammoth');
-// const pdf = require('pdf-parse');
-// const FileType = require('file-type');
-
-// const router = express.Router();
-
-// async function extractTextFromDocx(buffer) {
-//   const result = await mammoth.extractRawText({ buffer });
-//   return result.value;
-// }
-// async function extractTextFromPdf(buffer) {
-//   const data = await pdf(buffer);
-//   return data.text;
-// }
-
-// router.post('/submit-resume', async (req, res) => {
-//   let { resume } = req.body;
-//   if (!resume) return res.status(400).json({ message: 'No resume provided' });
-
-//   try {
-//     let extractedResumeText;
-//     if (/^[A-Za-z0-9+/=]+$/.test(resume) && resume.length > 200) {
-//       const resumeBuffer = Buffer.from(resume, 'base64');
-//       const detectedType = await FileType.fromBuffer(resumeBuffer);
-//       if (!detectedType) return res.status(400).json({ message: 'Could not determine file type.' });
-
-//       if (detectedType.mime === 'application/pdf') {
-//         extractedResumeText = await extractTextFromPdf(resumeBuffer);
-//       } else if (detectedType.mime === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-//         extractedResumeText = await extractTextFromDocx(resumeBuffer);
-//       } else {
-//         return res.status(400).json({ message: 'Unsupported file type.' });
-//       }
-//     } else {
-//       extractedResumeText = String(resume); // plain text paste
-//     }
-
-//     return res.status(200).json({ message: 'Resume parsed successfully', extractedResumeText });
-//   } catch (err) {
-//     console.error('Error parsing resume:', err);
-//     return res.status(400).json({ message: 'Error parsing the resume file.', error: err.message });
-//   }
-// });
-
-// module.exports = router;
-
-
-// above worked below is testing/feature adding
-// job/backend/routes/resumeRoutes.js
 const express = require("express");
 const FileType = require("file-type");
 const mammoth = require("mammoth");
@@ -149,3 +99,4 @@ router.post("/download-pdf", async (req, res) => {
 });
 
 module.exports = router;
+
